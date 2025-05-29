@@ -1,20 +1,19 @@
 #include <iostream>
 #include <limits>
-using namespace std;
 
-double SoNumero (string NaoNumero, double maximo = -1) {
+double SoNumero (std::string NaoNumero, double maximo = -1) {
   double numero;
 
     while (true) {
-      cout << NaoNumero << endl;
-        cin >> numero;
+      std::cout << NaoNumero << std::endl;
+        std::cin >> numero;
 
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Por favor, digite apenas numeros." << endl;
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Por favor, digite apenas numeros." << std::endl;
         } else if (maximo > 0 && numero > maximo) {
-            cout << "Numero de horas maior que o esperado, tente de novo." << endl;
+            std::cout << "Numero de horas maior que o esperado, tente de novo." << std::endl;
         } else {
             return numero;
         }
@@ -26,7 +25,7 @@ int main() {
     double HorasTrabalhadas = SoNumero("Quantas horas voce trabalhou no mes? : ", 730);
 
     double SalarioBruto = GanhoPorHora * HorasTrabalhadas;
-    cout << "Seu Salario Bruto: R$ " << SalarioBruto << '\n' << endl;
+    std::cout << "Seu Salario Bruto: R$ " << SalarioBruto << '\n' << std::endl;
 
     double ir = SalarioBruto * 11 / 100;
     double inss = SalarioBruto * 8 / 100;
@@ -35,12 +34,12 @@ int main() {
 
     double SalarioLiquido = SalarioBruto - inss - ir - sindicato;
 
-    cout << "Seu Salario Liquido e gastos com impostos: \n"
+    std::cout << "Seu Salario Liquido e gastos com impostos: \n"
       << "INSS: R$ " << inss << '\n'
         << "Imposto de Renda: R$ " << ir << '\n'
           << "Sindicato: R$ " << sindicato << '\n'
             << "Total dos descontos: R$ " << TotalDescontos << " | 24%" << '\n'
-              << "Salario Liquido: R$ " << SalarioLiquido << '\n' << endl;
+              << "Salario Liquido: R$ " << SalarioLiquido << '\n' << std::endl;
 
     return 0;
 }
