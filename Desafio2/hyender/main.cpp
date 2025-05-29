@@ -1,17 +1,16 @@
 #include <iostream>
 #include <limits>
 #include <cctype>
-using namespace std;
 
 int menu() {
     int opcao;
-    cout << "----------------------------------------\n";
-    cout << "        Conversor de Temperatura\n";
-    cout << "     1 = abrir opcoes de temperatura\n";
-    cout << "     2 = Fechar Programa\n";
-    cout << "----------------------------------------\n";
-    cout << "Selecione uma opcao: ";
-    cin >> opcao;
+    std::cout << "----------------------------------------\n";
+    std::cout << "        Conversor de Temperatura\n";
+    std::cout << "     1 = abrir opcoes de temperatura\n";
+    std::cout << "     2 = Fechar Programa\n";
+    std::cout << "----------------------------------------\n";
+    std::cout << "Selecione uma opcao: ";
+    std::cin >> opcao;
 
     return opcao;
 }
@@ -22,18 +21,18 @@ int main() {
     int OpcaoEscolhida;
     do {OpcaoEscolhida = menu();
         if (OpcaoEscolhida == 1) {
-            cout << "----------------------------------------\n";
-            cout << "        Conversor de Temperatura\n";
-            cout << "     C = Celsius\n";
-            cout << "     F = Fahrenheit\n";
-            cout << "----------------------------------------\n";
+            std::cout << "----------------------------------------\n";
+            std::cout << "        Conversor de Temperatura\n";
+            std::cout << "     C = Celsius\n";
+            std::cout << "     F = Fahrenheit\n";
+            std::cout << "----------------------------------------\n";
             while (true) {
-                cout << "Escreva a unidade que deseja converter para: \n";
-                cin >> TipoTemp;
-                if (cin.fail() || cin.peek() != '\n' || (TipoTemp != 'C' && TipoTemp != 'F' && TipoTemp != 'c' && TipoTemp != 'f')) {
-                    cout << "Digite apenas 'C' ou 'F'.\n";
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                std::cout << "Escreva a unidade que deseja converter para: \n";
+                std::cin >> TipoTemp;
+                if (std::cin.fail() || std::cin.peek() != '\n' || (TipoTemp != 'C' && TipoTemp != 'F' && TipoTemp != 'c' && TipoTemp != 'f')) {
+                    std::cout << "Digite apenas 'C' ou 'F'.\n";
+                    std::cin.clear();
+                   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 } else {
                     TipoTemp = tolower(TipoTemp);
                     break;
@@ -44,33 +43,33 @@ int main() {
             break;
         }
         if (OpcaoEscolhida > 2) {
-                cout << "Digite Apenas 1 ou 2: ";
-                cin >> OpcaoEscolhida;
+                std::cout << "Digite Apenas 1 ou 2: ";
+                std::cin >> OpcaoEscolhida;
             }
         if (tolower (TipoTemp) == 'c') {
-            cout << "Digite a Temperatura em Fahrenheit: \n";
-            cin >> temperatura;
-            if (cin.fail()) {
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Erro: Por favor, digite apenas numeros.\n";
+            std::cout << "Digite a Temperatura em Fahrenheit: \n";
+            std::cin >> temperatura;
+            if (std::cin.fail()) {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << "Erro: Por favor, digite apenas numeros.\n";
             }
             else {
                 temperatura = (temperatura - 32) / 1.8;
-                cout << "Temperatura em Celsius: " << temperatura << "C\n";
+                std::cout << "Temperatura em Celsius: " << temperatura << "C\n";
             }
         }
         if (tolower (TipoTemp) == 'f') {
-            cout << "Digite a Temperatura em Celsius: \n";
-            cin >> temperatura;
-            if (cin.fail()) {
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Erro: Por favor, digite apenas numeros.\n";
+            std::cout << "Digite a Temperatura em Celsius: \n";
+            std::cin >> temperatura;
+            if (std::cin.fail()) {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << "Erro: Por favor, digite apenas numeros.\n";
             }
             else {
                 temperatura = (1.8 * temperatura) + 32.0;
-                cout << "Temperatura em Fahrenheit: " << temperatura << "F\n";
+                std::cout << "Temperatura em Fahrenheit: " << temperatura << "F\n";
             }
         }
     }while (OpcaoEscolhida != 2);
