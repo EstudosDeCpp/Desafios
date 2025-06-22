@@ -1,0 +1,2 @@
+Faça um programa no qual ele gera 50 alunos, com idades (Entre 8 e 18) e alturas variadas (Entre 1,10 e 1,90)
+Nesse mesmo programa que ele determine quantos alunos com mais de 13 anos possuem altura inferior à média de altura desses alunos.
